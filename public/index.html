@@ -3,14 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+        body
+        {
+            margin-left:3%;
+            margin-right:3%;
+        }
+        h1
+        {
+            background-color:brown;
+            color:white;
+            height:100px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-family:sans-serif;
+            font-size:50px;
+        }
+       button
+       {
+           border:none;
+           background-color:#ccc;
+           font-size:20px;
+           height:50px;
+           color:black;
+       }
+       .tabs
+       {
+           background-color:#ccc;
+           height:50px;
+       }
+       button:hover
+       {
+          background-color:grey;
+          transition:0.5s;
+       }
+       .content
+       {
+           margin-top:30px;
+           background-color:black;
+           color:red;
+           font-size:25px;
+           display:flex;
+           padding-left:50px;
+           align-items:center;
+           height:350px;
+       }
+    </style>
     <title>Book Repo</title>
 </head>
-<body>
+<body onload="alert('Welcome to Book Repo of Sayantan')">
     <h1>Book Repo</h1>
-    <a href="/post"><button type="button">Add Book</button></a>
-    <a href="/delete"><button type="button">Delete Book</button></a>
-    <a href="/update"><button type="button">Update Book</button></a>
-    <a href="/get"><button type="button">Get Repo</button></a>
+    <div class="tabs">
+        <a href="/post"><button type="button">Add Book</button></a>
+        <a href="/delete"><button type="button">Delete Book</button></a>
+        <a href="/update"><button type="button">Update Book</button></a>
+        <a href="/get"><button type="button">Get Repo</button></a>
+    </div>
+
+    <div class="content">
+        <ul>
+            <li>This is a Book Repository</li>
+            <li>Author: Sayantan Chakraborty</li>
+            <li>Built Using Node Js, Express</li>
+            <li>Database: MongoDB</li>
+            <li>Hosted By Heroku</li>
+            <li>You can Add, Delete, Update and Retrieve books from here</li>
+        </ul>
+    </div>
+  
 
 </body>
 </html>
