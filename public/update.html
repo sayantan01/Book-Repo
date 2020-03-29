@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>Update Book</title>
+</head>
+<body>
+    <h1>Update Book</h1>
+    <form id="form" action="/book/update" method="put">
+        <h3>Old Book</h3>
+        Name:<br />
+        <input type="text" name="prevName" placeholder="Enter book name to update">
+        <hr />
+        <h3>New Book</h3>
+        Name:
+        <input type="text" name="name" placeholder="Enter book name"><br />
+        AUthor:
+        <input type="text" name="author" placeholder="Enter author name"><br />
+        Price:
+        <input type="number" name="price" placeholder="Enter book price"><br />
+        <input type="submit" value="Update">
+
+    </form>
+
+    <script>
+        $(document).ready(()=>{
+            $('#form').submit((e)=>{
+                e.preventDefault();
+                let serialArray=$('#form').serializeArray();
+                let name=serialArray[0]['value'];
+                console.log(name);
+                let formObj={}
+                for(let i=1;i<serialArray.length;i++)
+                {
+                    formObj[serialArray[i]['name']]=serialArray[i]['value'];
+                }
+                $.ajax(
+                {
+                    url:`/book/update/${name}`,
+                    type:'put',
+                    contentType:'application/json',
+                    data: JSON.stringify(formObj),
+                    success:()=>{
+                        console.log('update successful');
+                    },
+                    error:(err)=>{
+                        console.log(err);
+                    }
+                });
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+
+
+</head>
+<body>
+    <h1>Get Book Repo</h1>
+    <button type="button" id="btn">Get Book List</button>
+    <table class="table-striped table-hover" id="table">
+        <thead>
+            <tr>
+                <th data-field="name">Name</th>
+                <th data-field="author">Author</th>
+                <th data-field="price">Price</th>
+            </tr>
+        </thead>
+    </table>
+    <script>
+        $(document).ready(()=>{
+            $('#btn').click((e)=>{
+                $.ajax({
+                    url:'book/get/',
+                    type:'get',
+                    contentType:'application/json',
+                    
+                }).done((obj)=>{
+                    console.log('Done');
+                    $('#table').bootstrapTable({
+                        data:obj
+                    });
+                })
+            })
+        })
+    </script>
+</body>
+</html>

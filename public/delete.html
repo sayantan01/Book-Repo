@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Book</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <h1>Delete Book</h1>
+    <form id="form" action="/book/delete" method="delete">
+        Name:<br />
+        <input type="text" name="name">
+        <input type="submit" value="Delete">
+    </form>
+
+    <script>
+        $(document).ready(()=>{
+            $('#form').submit((e)=>{
+                e.preventDefault();
+                let name=$('form').serializeArray()[0]['value'];
+                console.log(name);
+                $.ajax({
+                    url:`/book/delete/${name}`,
+                    type: 'delete',
+                    success: ()=>{
+                        console.log("delete successful");
+                    },
+                    error: (err)=>{
+                        console.log(err);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

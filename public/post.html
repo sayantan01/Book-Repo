@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Add Book</h1>
+    <form id="form" action="/book/" method="post">
+        Name:
+        <input type="text" name="name" placeholder="Enter book name"><br />
+        AUthor:
+        <input type="text" name="author" placeholder="Enter author name"><br />
+        Price:
+        <input type="number" name="price" placeholder="Enter book price"><br />
+        <input type="submit" value="Save">
+    </form>
+    
+    <script>
+        $(document).ready(function(){
+            $('#form').submit((e)=>{
+                console.log('submitted');
+                e.preventDefault();
+                let serialArray=$('form').serializeArray();
+                let formObj={}
+                for(i=0;i<serialArray.length;i++)
+                {
+                    formObj[serialArray[i]['name']]=serialArray[i]['value'];
+                }
+                console.log(formObj);
+                $.ajax({
+                    url: '/book/',
+                    type: 'post',
+                    contentType: 'application/json',
+                    data:JSON.stringify(formObj),
+                    success: function(response){
+                        console.log('successfully submitted form');
+                        console.log('response');
+                    },
+                    error:(err)=>{
+                        console.log('Error');
+                        console.log(err);
+                    }
+                });
+            })
+        })
+    </script>
+</body>
+</html>
