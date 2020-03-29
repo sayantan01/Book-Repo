@@ -5,13 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Book</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <style>
+        body
+        {
+            background-color:black;
+        }
+        #form
+        {
+            padding-top:20px;
+            display:flex;
+            flex-direction:column;
+            color:black;
+            background-color:whitesmoke;
+            width:50%;
+            box-shadow:10px 10px 5px grey;
+            height:300px;
+            margin-left:27%;
+            align-items:center;
+            font-size:20px;
+            
+        }
+        input[type=text]
+        {
+            border:none;
+            margin:10px;
+            padding:20px;
+        }
+       
+        input[type=submit]
+        {
+            height:50px;
+            width:100px;
+            font-size:20px;
+            color:green;
+        }
+    </style>
 </head>
 <body>
-    <h1>Delete Book</h1>
+    <h1 style="color:red; margin-left:40%; font-size:50px;">Delete Book</h1>
     <form id="form" action="/book/delete" method="delete">
-        Name:<br />
-        <input type="text" name="name">
+        <b>Name: </b><br />
+        <input type="text" name="name" placeholder="Enter book name">
         <input type="submit" value="Delete">
     </form>
 
@@ -26,6 +60,7 @@
                     type: 'delete',
                     success: ()=>{
                         console.log("delete successful");
+                        alert("Successfully deleted Book!!");
                     },
                     error: (err)=>{
                         console.log(err);
