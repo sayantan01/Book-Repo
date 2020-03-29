@@ -5,15 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Book</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        body
+        {
+            background-color:black;
+        }
+        #form
+        {
+            padding-top:20px;
+            display:flex;
+            flex-direction:column;
+            color:black;
+            background-color:whitesmoke;
+            width:50%;
+            box-shadow:10px 10px 5px grey;
+            height:400px;
+            margin-left:25%;
+            align-items:center;
+            font-size:20px;
+            
+        }
+        input[type=text]
+        {
+            border:none;
+            margin:10px;
+            padding:20px;
+        }
+        input[type=number]
+        {
+            border:none;
+            margin:10px;
+            padding:20px;
+        }
+        input[type=submit]
+        {
+            height:50px;
+            width:80px;
+            font-size:20px;
+            color:green;
+        }
+    </style>
 </head>
 <body>
-    <h1>Add Book</h1>
+    <h1 style="color:red; margin-left:40%; font-size:50px;">Add Book</h1>
     <form id="form" action="/book/" method="post">
-        Name:
-        <input type="text" name="name" placeholder="Enter book name"><br />
-        AUthor:
+        <b>Name :</b>
+        <input type="text" name="name" placeholder="Enter book name" ><br />
+        <b>Author: </b>
         <input type="text" name="author" placeholder="Enter author name"><br />
-        Price:
+        <b>Price: </b>
         <input type="number" name="price" placeholder="Enter book price"><br />
         <input type="submit" value="Save">
     </form>

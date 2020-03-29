@@ -11,12 +11,45 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
 
-
+    <style>
+        body
+        {
+            background-color:black;
+            margin-left:3%;
+            margin-right:3%;
+        }
+        #table
+        {
+            color:white;
+            font-size:20px;
+        }
+        button
+        {
+            height:50px;
+            width:150px;
+            color:green;
+        }
+        p
+        {
+            color:blue;
+            font-size:25px;
+        }
+        #info
+        {
+            border:1px solid red;
+            padding:10px;
+            margin-top:20px;
+            margin-bottom:20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Get Book Repo</h1>
-    <button type="button" id="btn">Get Book List</button>
-    <table class="table-striped table-hover" id="table">
+    <h1 style="color:red; margin-left:40%; font-size:50px;">Get Book Repo</h1>
+    <div id="info">
+        <p>Click the Button to get the Detailed list of Books: </p>
+        <button type="button" id="btn">Get Book List</button>
+    </div>
+    <table class="table-hover" id="table">
         <thead>
             <tr>
                 <th data-field="name">Name</th>
